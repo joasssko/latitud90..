@@ -1,4 +1,4 @@
-<footer <?php if(is_home() || is_page(15)){?>class="navbar-fixed-bottom"<?php }?>>
+<footer <?php if(is_home() || is_page(15) || is_page(17)){?>class="navbar-fixed-bottom"<?php }?>>
 	<div class="container">
     	<div class="row">
         	<?php wp_nav_menu( array( 'container' => 'none', 'menu_class' => 'footer-nav fl' , 'theme_location' => 'secondary' ) ); ?>

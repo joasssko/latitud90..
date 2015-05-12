@@ -1338,7 +1338,6 @@
 
 
 
-
 jQuery(function(){
     jQuery('.navbar').data('size','big');
 });
@@ -1399,6 +1398,23 @@ jQuery(document).ready(function($) {
 	});
 });
 */
+jQuery(document).ready(function($) {
+	var f = jQuery( window ).width();
+	var s = 640	
+	var l = (f-s)/2
+	
+	jQuery('#triangle').attr('style' , 'left:'+l+'px');
+	//document.getElementById("triangle").setAttribute('style' , 'left:'+l+'px');
+	
+	jQuery(window).resize(function(event) {
+		var f = jQuery( window ).width();
+		var s = 640	
+		var l = (f-s)/2
+		jQuery('#triangle').attr('style' , 'left:'+l+'px');
+		//document.getElementById("triangle").setAttribute('style' , 'left:'+l+'px');
+	});
+});
+
 
 /*caroufredsel*/
 
