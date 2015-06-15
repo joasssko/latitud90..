@@ -19,6 +19,8 @@
 <main>
 	<div class="container">
     	<div class="row">
+        	<div class="clear separator"></div>
+            <div class="clear miniseparator"></div>
         	<?php $bigimage = wp_get_attachment_image_src(get_field('top_imagen') , 'col-6-third')?>
             <img src="<?php echo $bigimage[0]?>" class="img-responsive" alt="" width="100%">
         </div>
@@ -39,6 +41,12 @@
         <div class="row">
         	<h1><?php echo $post->post_title?></h1>
             <?php echo apply_filters('the_content' , $post->post_content)?>
+            
+            <?php $testimonios = get_field('testimonios')?>
+            <?php if($testimonios){?>
+
+            <blockquote class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12 testimonio-produccion" ><em><?php echo $testimonios[0]['testimonio']?></em><div class="clear"></div><small><?php echo $testimonios[0]['autor']?></small></blockquote>
+            <?php }?>
         </div>
         
     </div>

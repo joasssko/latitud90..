@@ -3,8 +3,8 @@
 <div id="underhead">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3 col-xs-12 col-sm-4 col lg-3"><h2>Personas</h2></div>
-			<div class="col-md-9 col-xs-12 col-sm-8 col lg-9"><?php echo $post->post_excerpt?></div>
+			<div class="col-md-3 col-xs-12 col-sm-4 col lg-3"><h2>Personas</h2><small>El equipo</small></div>
+			<div class="col-md-9 col-xs-12 col-sm-8 col lg-9"><?php echo get_field('equipo' , 9)?></div>
 		</div>
 	</div>
 </div>
@@ -64,5 +64,5 @@
         </div>
 	</div>
 </section>
-
+<div class="clear separator"></div>
 <?php get_footer()?>

@@ -27,26 +27,18 @@
 	</div>
 </div>
 
-<script src="//f.vimeocdn.com/js/froogaloop2.min.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-	var iframe = document.getElementById('videopre');
-	$f == Froogaloop
-	var player = $f(iframe);
-	
-	
-	
-	var pauseButton = document.getElementById("cerrar-vx-videopre");
-	pauseButton.addEventListener("click", function() {
-	  player.api("pause");
-	});
-	
-	var pauseButton = document.getElementById("videoproducciones");
-	pauseButton.addEventListener("click", function() {
-	  player.api("pause");
-	});
-	
-}); 
+jQuery('.modal .close').on('click', function() {
+    //$('#popup-youtube-player').stopVideo();
+	jQuery('.modal .player')[0].contentWindow.postMessage('{"event":"command","func":"' +'stopVideo' + '","args":""}', '*');    
+});
+jQuery('.modal').on('click', function() {
+    //$('#popup-youtube-player').stopVideo();
+	jQuery('.modal .player')[0].contentWindow.postMessage('{"event":"command","func":"' +'stopVideo' + '","args":""}', '*');    
+});
+});
+
 </script>
 
 
@@ -56,7 +48,9 @@ jQuery(document).ready(function($) {
       <button type="button" class="close" data-dismiss="modal" id="cerrar-vx-videopre" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <div class="modal-body">
         <div class="embed-responsive embed-responsive-16by9">
-          <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/115116490?color=e21717&title=0&byline=0&portrait=0&badge=0"  id="videopre" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        
+        	<iframe class="embed-responsive-item player" src="https://www.youtube.com/embed/<?php echo get_field('reel')?>?rel=0&amp;showinfo=0&enablejsapi=1" id="videopre" frameborder="0" allowfullscreen></iframe>
+        
         </div>  
       </div>
     </div>

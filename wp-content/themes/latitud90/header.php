@@ -82,7 +82,7 @@ jQuery(document).ready(function() {
 	jQuery(function() {
 		var BV = new $.BigVideo();
 		BV.init();
-		  BV.show('https://dl.dropboxusercontent.com/s/b56gn2dbwhqzgtn/videoproducciones.mp4',{doLoop:true});
+		  BV.show('<?php echo get_field('video_loop' , 19)?>',{doLoop:true});
 	});
 </script>
 <?php }?>

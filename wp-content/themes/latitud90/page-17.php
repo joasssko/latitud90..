@@ -37,17 +37,22 @@
 	</div>
 </div>
 
-<div class="layer-3 hidden-xs">
-	<div class="container">
-       	<div class="row">
-        	<h1><?php echo $post->post_content?></h1>
-        </div>
+<div class="modal modal-wide fade" id="conte" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+      	<h1><?php echo $post->post_title;?></h1>
+        <div class="clear separator"></div>
+        <?php echo apply_filters('the_content', $post->post_content)?>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="layer-4">
 	<div class="areas">
-        <div class="rombo" id="area-<?php echo $area->ID?>">
+        <div class="rombo" id="area-<?php echo $area->ID?>" data-toggle="modal" data-target="#conte">
             <span class="text"><?php echo $post->post_title?></span>
         </div>
     </div>

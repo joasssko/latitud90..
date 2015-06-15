@@ -88,7 +88,7 @@ function clientes_register() {
     flush_rewrite_rules();
 }
 
-add_action('init', 'testimonios_register');
+/* add_action('init', 'testimonios_register');
 function testimonios_register() {
     $args = array(
         'label' => 'Testimonios',
@@ -104,7 +104,9 @@ function testimonios_register() {
     );
     register_post_type('testimonios', $args);
     flush_rewrite_rules();
-}
+} */
+
+//register_taxonomy("areas", array('testimonios'), array("hierarchical" => true, "label" => "Areas", "singular_label" => "Area", "rewrite" => true));
 
 add_action('init', 'personas_register');
 function personas_register() {

@@ -10,7 +10,11 @@
                 <div class="clear"></div>
                 <p><?php echo $post->post_excerpt?></p>
                 <div class="clear separator"></div>
+                <span class="galbt"><span class="fa fa-image fa-fw down"></span> ver galería</span>
+                <div class="clear separator"></div>
                 <span class="fa fa-chevron-down fa-2x fa-fw down"></span>
+                
+                
             </div>
             
     	</div>
@@ -187,8 +191,16 @@
         	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 testimonios">
             	<h2>Testimonios</h2>
                 <div class="clear separator"></div>
-                <?php $testimonios = get_posts(array('post_type' => 'testimonios' , 'numberposts' => 1 , 'order' => 'RAND'))?>
-                <div class="in"><?php echo $testimonios[0]->post_content?></div>
+                <?php //$testimonios = get_posts(array('post_type' => 'testimonios' , 'numberposts' => 1 , 'order' => 'RAND'))?>
+                <?php $testimonios = get_field('testimonios')?>
+                
+                <div class="in testimonio">
+                	<?php if($testimonios){?>
+					<?php echo $testimonios[0]['testimonio']?>
+                	<div class="clear separator"></div>
+                    <small><?php echo $testimonios[0]['autor']?></small>
+                    <?php }?>
+                </div>
             </div>
         	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 clientes">
             	<h2>Nuestros clientes</h2>

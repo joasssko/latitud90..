@@ -44,7 +44,7 @@
             </div>
         	<div class="col-md-6 col-lg-6 col-sm-4 col-xs-12">
             	<h2>Filosofía</h2>
-                <h4>Empresas B</h4>
+                <h4>Empresa B</h4>
                 <?php echo apply_filters('the_content' , get_field('filosofia'))?>
             </div>
         </div>

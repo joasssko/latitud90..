@@ -58,19 +58,40 @@ blockquote li {list-style-position: inside !important;}
 .callout { background-color: #f2f2f2;padding: 20px;border-left: 6px solid #e21717;border-bottom: 1px solid #ccc;}
 .modal{ z-index:999999999;}
 
-.modal.modal-wide .modal-dialog { width: 90%;}
+.modal.modal-wide .modal-dialog { width: 80%;}
 .modal-wide .modal-body { overflow-y: auto;}
 
 .modal-backdrop.in{  z-index: 9999;
-  background-color: rgba(0,0,0,.9);
+  background-color: rgba(0,0,0,.7);
   opacity: 1;}
+
+.modal-dialog{ margin:150px auto 0 }  
+.modal-content{ box-shadow:none !important; border:none; padding:50px 50px 70px 50px }
+.modal h1{ text-align:center}
+.modal-header{ border-bottom:0px !important}
+.modal .close{ font-size:70px;}
+
+  
 
 h1, h2 , h3{ font-family: Raleway , helvetica, arial, sans-serif; text-transform:uppercase}
 h3{ font-weight:900; color:#155980}
 h4{ font-family: Raleway , helvetica, arial , sans-serif}
 h4, .h4, h5, .h5, h6, .h6 { margin-top:0px;}
 
+.galbt{
+  padding: 5px 10px;
+  border-radius: 50px;
+  border: 1px solid #fff;
+  color: #fff;
+  clear: both;
+  display: inline-block;
+  font-size: 13px;
+  transition:all .3s ease-in; cursor:pointer
+}
 
+.galbt:hover{ color:#000; background-color:#fff}
+
+.galbt:hover span{ color:#000}
 
 
 #loader-wrapper {background-color:#000; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10000000;}
@@ -252,9 +273,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 
 
 @media screen and (min-width:1281px){
-.single-viajes-de-estudio .rombo , .page-id-19 .rombo {position: relative; transform: rotateZ(-45deg); -webkit-transform: rotateZ(-45deg); margin: 0 0 30px;width: 185px;height: 185px; background-color: transparent; border:2px solid #fff; display:inline-block; transition:all 0.3s ease-in-out }
+.single-viajes-de-estudio .rombo , .page-id-19 .rombo {position: relative; transform: rotateZ(-45deg); -webkit-transform: rotateZ(-45deg); margin: 0 0 0px;width: 185px;height: 185px; background-color: transparent; border:2px solid #fff; display:inline-block; transition:all 0.3s ease-in-out }
 
-.single-viajes-de-estudio .rombo .text , .page-id-19 .rombo .text{display: table-cell;vertical-align: middle;text-align: center;font-size: 22px;color: gray;width: 185px;height: 185px;transform: rotateZ(45deg);-webkit-transform: rotateZ(45deg); cursor:pointer; color:#fff; font-weight:700; text-transform:uppercase; padding:0 20px; text-decoration: none}
+.single-viajes-de-estudio .rombo .text , .page-id-19 .rombo .text{display: table-cell;vertical-align: middle;text-align: center;font-size: 18px;color: gray;width: 185px;height: 185px;transform: rotateZ(45deg);-webkit-transform: rotateZ(45deg); cursor:pointer; color:#fff; font-weight:700; text-transform:uppercase; padding:0 20px; text-decoration: none}
+
+span.fa.fa-play.fa-2x.fa-fw.playbutton {
+  margin-top: 40px;
+}
+
 }
 
 /*******************************************************************************************/
@@ -269,7 +295,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
  background-color:#f30;
  content:'';}
 
-.layer-2 .inside{ /*transform:rotate(-45deg)*/}
+.layer-2 .inside{ /*transform:rotate(-45deg)*/ position: relative; left: -55px; bottom: 55px;}
 /*.layer-2 .inside a {margin: 300px;width: 360px !important;height: 360px !important;display: inline-block;font-size: 30px;text-align: center;
 }*/
 
@@ -308,7 +334,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 .jumbo .row{ padding: 15% 18% 10%}
 .jumbo .row h1{ color:#fff; font-weight:300}
 .category .jumbo .row , .single-post .jumbo .row {padding: 7% 18% 7%;}
-.jumbo p{ color:#fff; font-size:20px; margin: 50px 0 0 0; font-family:Raleway, helvetica, arial, sans-serif }
+.jumbo p{ color:#fff; font-size:16px; margin: 50px 0 0 0; font-family:Raleway, helvetica, arial, sans-serif }
 
 #underhead{ margin-top: 80px; background: linear-gradient(to bottom , rgb(49, 75, 104) , rgb(73, 103,136) , rgb(77, 110, 147)); color:#fff; font-size:18px}
 #underhead .row{ padding:40px 0}
@@ -343,10 +369,11 @@ h3.mini{ font-size:14px; font-weight:100; font-style:italic; text-transform:none
 
 .actividades .contacto .in .fa{ font-size:50px; color:#40ccaf; display:block;}
 
-.page-template-page-turismo-y-turismo-social .actividades{ background-image:none !important}
+.page-template-page-turismo-y-turismo-social .recorrido-b .container , .page-template-page-turismo-y-turismo-social .actividades{ background-image:none !important}
 .page-template-page-turismo-y-turismo-social .recorrido .ruta{ margin-top:0px;}
 .page-template-page-turismo-y-turismo-social .recorrido-b .container {background-position: 50px -10px;}
-.page-template-page-turismo-y-turismo-social .actividades .contacto .in {padding: 185px 0 0;background-position: 0 105px;}
+.page-template-page-turismo-y-turismo-social .actividades .contacto .in {padding: 0 0;background-position: 0 105px;}
+.page-template-page-turismo-y-turismo-social .actividades .contacto{ margin-bottom:100px; margin-top:50px }
 
 #galeria .slide{background-color:#242424;}
 #galeria .slide .in { padding:20% 100px; color:#fff}
@@ -355,6 +382,7 @@ h3.mini{ font-size:14px; font-weight:100; font-style:italic; text-transform:none
 /*.item img{ width:100%}*/
 
 .masdestinos {text-transform: uppercase;color: #fff;}
+.masdestinos ul{ margin-bottom:20px;}
 .masdestinos li, .masdestinos ul {display: inline-block;}
 .masdestinos li a {font-weight: 700;color: #fff;padding: 0 15px; text-decoration:none}
 
@@ -406,6 +434,18 @@ h3.mini{ font-size:14px; font-weight:100; font-style:italic; text-transform:none
 .personas .persona figcaption h4{ }
 
 .personas .persona:hover figcaption{ opacity:1;}
+
+.page-template-page-incoming main{ margin-top:30px;}
+
+.personas h3 {
+  font-weight: 300;
+  color: #000;
+    font-family: Raleway , helvetica, arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
+.testimonio-produccion{ font-size:14px; text-align:right}
 
 /*******************************************************************************************/
 /*************************************POSTS*************************************************/
@@ -472,6 +512,9 @@ h3.mini{ font-size:14px; font-weight:100; font-style:italic; text-transform:none
 
 .pdata .inside{ display:none; width:150px; height:150p; padding:20px; transform:rotate(45deg); -webkit-transform:rotate(45deg)}
 .pdata-b .inside{ display:block;}
+
+.testimonio small{ font-weight:700}
+
 /*******************************************************************************************/
 /*************************************FOOTER************************************************/
 /*******************************************************************************************/

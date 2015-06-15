@@ -49,7 +49,7 @@
         </div>
         <div class="row actividades">
         	
-            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12 col-md-offset-6 col-lg-offset-6 contacto">
+            <div class="col-md-2 col-lg-2 col-sm-2 col-xs-12 col-md-offset-10 col-lg-offset-10 contacto">
                 <div class="in">
                     <div class="fa fa-envelope-o"></div>
                     <a data-target="#modal-contacto" data-toggle="modal">Contacto</a>
