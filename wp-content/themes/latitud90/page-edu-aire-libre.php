@@ -1,7 +1,12 @@
+<?php 
+/* 
+	Template Name: Educación al aire libre
+ */
+?>
+
 <?php get_header()?>
 
-
-<?php $bigimage = wp_get_attachment_image_src(get_field('top_imagen') , 'head')?>
+<?php $bigimage = wp_get_attachment_image_src(get_field('top_imagen') , 'full')?>
 <div id="bigheader" style="background-image:url(<?php echo $bigimage[0]?>)">
 	<div class="jumbo">
     	<div class="container">
@@ -14,27 +19,17 @@
             </div>
             
     	</div>
-        <div class="masdestinos">
-        	<?php $dest = wp_get_post_terms($post->ID , 'destino')?>
-			<?php $destinos = get_posts(array('post_type' => 'viajes-de-estudio' , 'destino' => $dest[0]->slug , 'post__not_in' => array($post->ID)))?>
-            <span>Otros destinos</span>
-            <ul>
-                <?php foreach($destinos as $destino):?>
-                <li><a href="<?php echo get_permalink($destino->ID)?>"><?php echo $destino->post_title?></a></li>
-                <?php endforeach;?>
-            </ul>
-        </div>
-
 	</div>
 </div>
 <div class="premain"></div>
+
 <main>
 	<div class="container">
 		<div class="row">
         
         	<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                 <h1><?php echo $post->post_title?></h1>
-                <h3 class="mini"><?php echo get_field('secondary_name')?></h3>
+                <h3><?php echo get_field('secondary_name')?></h3>
             </div>
         
         	<article class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
@@ -44,20 +39,17 @@
 	</div>
 </main>
 
-<section class="recorrido">
+<section class="recorrido recorrido-b">
 	<div class="container">
 		
         <div class="row ruta">
         	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-            	<h2>Ruta</h2>
-                <h4>Expedición</h4>
-                <?php $minimap = wp_get_attachment_image_src(get_field('minimap') , 'full')?>
-                <img src="<?php echo $minimap[0]?>" class="minimap" alt="">
+            	<h2>&nbsp;</h2>
             </div>
-        	<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-            	<h2>Destinos</h2>
-                <h4>Expedición</h4>
-                <?php echo apply_filters('the_content' , get_field('destinos'))?>
+        	<div class="col-md-6 col-lg-6 col-sm-4 col-xs-12">
+            	<h2>Objetivos</h2>
+                <h4><?php echo $post->post_title?></h4>
+                <?php echo apply_filters('the_content' , get_field('objetivos'))?>
             </div>
         </div>
         <div class="row actividades">
@@ -78,7 +70,19 @@
                     <div class="fa fa-envelope-o"></div>
                     <a data-target="#modal-contacto" data-toggle="modal">Contacto</a>
                     
-                    
+                    <div class="modal fade" id="modal-contacto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <div class="modal-content">
+                            
+                          
+                          <div class="modal-body">
+                            <?php echo do_shortcode('[contact-form-7 id="64" title="Contacto Viajes de estudio"]')?>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
             
@@ -86,20 +90,6 @@
         </div>
 	</div>
 </section>
-
-<div class="modal fade" id="modal-contacto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <div class="modal-content">
-        
-      <div class="modal-body">
-        <?php echo do_shortcode('[contact-form-7 id="64" title="Contacto Viajes de estudio"]')?>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
 <div class="separator"></div>
 <section id="galeria">
 	<div class="slide">

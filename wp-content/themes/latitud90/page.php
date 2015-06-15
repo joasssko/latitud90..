@@ -1,6 +1,5 @@
 <?php get_header()?>
 
-
 <?php $bigimage = wp_get_attachment_image_src(get_field('top_imagen') , 'full')?>
 <div id="bigheader" style="background-image:url(<?php echo $bigimage[0]?>)">
 	<div class="jumbo">
@@ -17,6 +16,7 @@
 	</div>
 </div>
 <div class="premain"></div>
+
 <main>
 	<div class="container">
 		<div class="row">
@@ -27,7 +27,7 @@
 	</div>
 </main>
 
-<section class="recorrido">
+<section class="recorrido recorrido-b">
 	<div class="container">
 		<div class="row">
         	<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
@@ -37,14 +37,11 @@
         </div>
         <div class="row ruta">
         	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-            	<h2>Ruta</h2>
-                <h4>Expedición</h4>
-                <?php $minimap = wp_get_attachment_image_src(get_field('minimap') , 'full')?>
-                <img src="<?php echo $minimap[0]?>" class="minimap" alt="">
+            	<h2>&nbsp;</h2>
             </div>
-        	<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-            	<h2>Destinos</h2>
-                <h4>Expedición</h4>
+        	<div class="col-md-6 col-lg-6 col-sm-4 col-xs-12">
+            	<h2>Objetivos</h2>
+                <h4>CEAL</h4>
                 <?php echo apply_filters('the_content' , get_field('destinos'))?>
             </div>
         </div>
@@ -133,7 +130,7 @@
             <?php $mgc = -1?>
             	<?php foreach($galeria as $imagen):?>
                 <?php $mgc++?>
-                <li style="width:<?php echo $imagen['sizes']["medium-width"]?>px"><img src="<?php echo $imagen['sizes']['medium']?>" class="img-responsive" data-target="#carousel-example-generic" data-slide-to="<?php echo $mgc?>" alt=""></li>
+                <li style="width:<?php echo $imagen['sizes']["medium-width"]?>px"><img src="<?php echo $imagen['sizes']['mini-b']?>" class="img-responsive" data-target="#carousel-example-generic" data-slide-to="<?php echo $mgc?>" alt=""></li>
                 <?php endforeach?>
             </ul>
         	<div class="clear"></div>

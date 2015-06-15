@@ -1,9 +1,18 @@
 <?php if ( function_exists('add_theme_support') ) {
 add_theme_support('post-thumbnails');
+add_image_size('head', 1920, 800, true );
 add_image_size('col-6', 960, 920, true );
+//add_image_size('col-6-half', 960, (920/3)*2, true );
+add_image_size('col-6-half', 960, ((653+18)/3)*2, true );
+add_image_size('col-6-third', 960, ((653+18)/3)*1, true );
 add_image_size('col-7', (1920/12)*7, (920/4)*3, true );
-add_image_size('col-4', 640, 612, true );
+//add_image_size('col-4', 640, 612, true );
+add_image_size('col-4', 640, 445, true );
+add_image_size('col-4-large', 640, 1080, true );
+add_image_size('col-3-large', 1920/4, 1080, true );
 add_image_size('mini', (1920/12)*1, (920/8)*1, true );
+add_image_size('mini-b', (1920/12)*2, (920/8)*2, true );
+add_image_size('persona', 450, 450, true );
 }
 /* 
 add_filter('image_size_names_choose', 'my_image_sizes');
@@ -96,6 +105,26 @@ function testimonios_register() {
     register_post_type('testimonios', $args);
     flush_rewrite_rules();
 }
+
+add_action('init', 'personas_register');
+function personas_register() {
+    $args = array(
+        'label' => 'Personas',
+        'singular_label' => 'Persona',
+        'public' => true,
+		'menu_position' => 5, 
+        '_builtin' => false,
+        'capability_type' => 'post',
+		'has_archive' => true,
+        'hierarchical' => false,
+        'rewrite' => array( 'slug' => 'somos/personas'),
+        'supports' => array('title', 'editor' , 'excerpt' , 'thumbnail' )
+    );
+    register_post_type('personas', $args);
+    flush_rewrite_rules();
+}
+
+register_taxonomy("area", array('personas'), array("hierarchical" => true, "label" => "Áreas", "singular_label" => "Área", "rewrite" => true));
 
 ?>
 
@@ -249,4 +278,7 @@ function disable_emojis_tinymce( $plugins ) {
 		return array();
 	}
 }
+?>
+<?php 
+add_filter( 'jpeg_quality', create_function( '', 'return 75;' ) );
 ?>

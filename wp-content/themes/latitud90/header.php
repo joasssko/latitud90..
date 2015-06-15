@@ -27,30 +27,112 @@
 <?php wp_head()?>
 
 <!-- scripts -->
-
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-<?php /*?>
+<script>
+jQuery(window).load(function() {
+	jQuery("#loader-wrapper").fadeOut("slow");
+})
+</script>
+
+<?php if(is_home() || is_404()){ //supersized?>
+<?php $bgd = wp_get_attachment_image_src( get_field('default_background' , 'options') , 'full')?>
+<script type="text/javascript">
+
+jQuery(document).ready(function() {
+	jQuery('body').append('<div id="supersized-loader"></div><div id="supersized"></div>');
+});
+
+			jQuery(function($){
+				$.supersized({
+					slideshow               :   1,		//Slideshow on/off
+					autoplay				:	1,		//Slideshow starts playing automatically
+					start_slide             :   1,		//Start slide (0 is random)
+					random					: 	0,		//Randomize slide order (Ignores start slide)
+					slide_interval          :   8000,	//Length between transitions
+					transition              :   1, 		//0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+					transition_speed		:	300,	//Speed of transition
+					new_window				:	1,		//Image links open in new window/tab
+					pause_hover             :   0,		//Pause slideshow on hover
+					keyboard_nav            :   0,		//Keyboard navigation on/off
+					performance				:	1,		//0-Normal, 1-Hybrid speed/quality, 2-Optimizes image quality, 3-Optimizes transition speed // (Only works for Firefox/IE, not Webkit)
+					image_protect			:	1,		//Disables image dragging and right click with Javascript
+					image_path				:	'img/', //Default image path
+					min_width		        :   0,		//Min width allowed (in pixels)
+					min_height		        :   0,		//Min height allowed (in pixels)
+					vertical_center         :   0,		//Vertically center background
+					horizontal_center       :   1,		//Horizontally center background
+					fit_portrait         	:   1,		//Portrait images will not exceed browser height
+					fit_landscape			:   0,		//Landscape images will not exceed browser width
+					navigation              :   1,		//Slideshow controls on/off
+					thumbnail_navigation    :   0,		//Thumbnail navigation
+					slide_counter           :   0,		//Display slide numbers
+					slide_captions          :   0,		//Slide caption (Pull from "title" in slides array)
+					slides 					:  	[		//Slideshow Images
+														{image : '<?php echo $bgd[0] ?>', title : '',},  
+														 
+												]
+				}); 
+		    });
+</script>
+<?php }?>
+
+<?php if(is_page(19)){ //bigvideo?>
+<script>
+	jQuery(function() {
+		var BV = new $.BigVideo();
+		BV.init();
+		  BV.show('https://dl.dropboxusercontent.com/s/b56gn2dbwhqzgtn/videoproducciones.mp4',{doLoop:true});
+	});
+</script>
+<?php }?>
+
+<?php if(is_page(7)){?>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript">
   function initialize() {
 	var styles = [
-	  {
-		featureType: "all",
-		stylers: [
-		  { saturation: -10 }
-		]
-	  }
-	];
+			{
+				featureType: 'all',
+          		elementType: 'all',
+				
+			  stylers: [
+				/* { hue: "#525252" }, */
+				{lightness: '0'},
+				{gamma: 1}
+		 			   ]
+			},{
+				
+			  featureType: "road.highway",
+			  elementType: "geometry",
+			  stylers: [
+				{ lightness: 100 },
+				{ visibility: "simplified" }
+			  ]
+			},{
+			  featureType: "road",
+			  elementType: "labels",
+			  stylers: [
+				{ visibility: "ff" }
+			  ]
+			},
+			
+			{
+          	featureType: 'poi',
+          	elementType: 'all',
+          	stylers: [
+            { visibility: 'off' }
+          ]
+        }
+		  ];
 	
     var mapOptions = {
       center: new google.maps.LatLng(-33.634987, -71.630344),
-      zoom: 15,
+      zoom: 16,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
 	  streetViewControl: false,
 	  mapTypeControl: false,
 	  styles: styles,
-	  
 	  scrollwheel: false,
 	  draggable:false,
 	  
@@ -73,24 +155,31 @@
   }
   
 </script>
-<?php */?>
+<?php }?>
 
 <!-- RRSS Shares -->
 <script>
     window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
 </script>
-<script>
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.3&appId=1624076727836319";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 </head>
 
 <body <?php body_class()?>>
+
+
+<div id="loader-wrapper">
+    <div id="loader"></div>
+</div>
+
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">

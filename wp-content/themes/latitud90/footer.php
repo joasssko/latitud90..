@@ -1,7 +1,8 @@
-<footer <?php if(is_home() || is_page(15) || is_page(17)){?>class="navbar-fixed-bottom"<?php }?>>
+<footer <?php if(is_home() || is_page(15) || is_page(17) || is_page(19) || is_page(23) ||is_404()){?>class="navbar-fixed-bottom"<?php }?>>
 	<div class="container">
     	<div class="row">
         	<?php wp_nav_menu( array( 'container' => 'none', 'menu_class' => 'footer-nav fl' , 'theme_location' => 'secondary' ) ); ?>
+            <div class="clear miniseparator hidden-sm hidden-md hidden-lg"></div>
             <div class="sociales fl">
             	<ul>
             		<li><a href="<?php echo get_field('instagram','options')?>"><span class="fa fa-fw fa-instagram"></span></a></li>
