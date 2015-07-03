@@ -228,7 +228,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 
 .navbar .logo{ padding:10px 0px;}
 
-#menu-navegacion{ margin:30px 0 0}
+/*#menu-navegacion{ margin:30px 0 0 200px}*/
 #menu-navegacion li a{ font-family:pt sans, helvetica, arial, sans-serif; font-size:15px; font-weight:700; color:#000; text-transform:uppercase; cursor:pointer}
 #menu-navegacion li a:hover , #menu-navegacion li.current-menu-item a{ border-bottom:10px solid #436891 }
 #menu-navegacion li .sub-menu .current-menu-item a{ background: none; color: #fff}
@@ -239,6 +239,37 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 
 /*.hiddens{ opacity:0; }*/
 
+.navbar-toggle {
+  margin-top: 21px;}
+  
+.navbar-header {
+  float: none;
+}
+.navbar-toggle {
+  display: block;
+}
+.navbar-collapse {
+  border-top: 1px solid transparent;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1); text-align:center
+}
+.navbar-collapse.collapse {
+  display: none!important;
+}
+
+.navbar-collapse.collapse.in {
+  display: block !important;
+}
+
+.navbar-nav {
+  float: none!important;
+  margin: 7.5px -15px;
+}
+
+
+#menu-navegacion {
+  margin: 0 auto;
+  display: inline-block;
+}
 /*******************************************************************************************/
 /*************************************MAIN**************************************************/
 /*******************************************************************************************/
@@ -273,9 +304,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 
 
 @media screen and (min-width:1281px){
-.single-viajes-de-estudio .rombo , .page-id-19 .rombo {position: relative; transform: rotateZ(-45deg); -webkit-transform: rotateZ(-45deg); margin: 0 0 0px;width: 185px;height: 185px; background-color: transparent; border:2px solid #fff; display:inline-block; transition:all 0.3s ease-in-out }
+/*.single-viajes-de-estudio .rombo , .page-id-19 .rombo {position: relative; transform: rotateZ(-45deg); -webkit-transform: rotateZ(-45deg); margin: 0 0 0px;width: 185px;height: 185px; background-color: transparent; border:2px solid #fff; display:inline-block; transition:all 0.3s ease-in-out }
 
-.single-viajes-de-estudio .rombo .text , .page-id-19 .rombo .text{display: table-cell;vertical-align: middle;text-align: center;font-size: 18px;color: gray;width: 185px;height: 185px;transform: rotateZ(45deg);-webkit-transform: rotateZ(45deg); cursor:pointer; color:#fff; font-weight:700; text-transform:uppercase; padding:0 20px; text-decoration: none}
+.single-viajes-de-estudio .rombo .text , .page-id-19 .rombo .text{display: table-cell;vertical-align: middle;text-align: center;font-size: 18px;color: gray;width: 185px;height: 185px;transform: rotateZ(45deg);-webkit-transform: rotateZ(45deg); cursor:pointer; color:#fff; font-weight:700; text-transform:uppercase; padding:0 20px; text-decoration: none}*/
 
 span.fa.fa-play.fa-2x.fa-fw.playbutton {
   margin-top: 40px;
@@ -331,7 +362,11 @@ span.fa.fa-play.fa-2x.fa-fw.playbutton {
 
 #bigheader{ margin-top:60px; background-repeat:no-repeat; background-position:top center; background-size: 100% auto; text-align:center}
 #bigheader .jumbo{ background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.2),rgba(0,0,0,.4) , rgba(0,0,0,.5) , rgba(0,0,0,.7))}
-.jumbo .row{ padding: 15% 18% 10%}
+
+/*.single-viajes-de-estudio #bigheader .jumbo{ background:none !important}*/
+/*.jumbo .row{ padding: 15% 18% 10%}*/
+.jumbo .row{ padding: 12% 18% 8%}
+
 .jumbo .row h1{ color:#fff; font-weight:300}
 .category .jumbo .row , .single-post .jumbo .row {padding: 7% 18% 7%;}
 .jumbo p{ color:#fff; font-size:16px; margin: 50px 0 0 0; font-family:Raleway, helvetica, arial, sans-serif }
@@ -349,6 +384,7 @@ main .sociales li{ float:left; list-style:none; padding:0 5px 0 0; font-size:22p
 .recorrido{ margin-top:-120px}
 .recorrido h1 , main h1{ font-weight:700; margin-bottom:0; text-transform:uppercase; margin-bottom:0; margin: 0% 0 0 0}
 .recorrido p {font-size: 13px;}
+.recorrido li {font-size: 13px;}
 
 .page-template-page-produccion h1{ margin:0 0 30px 0; text-align:center; }
 
@@ -373,7 +409,17 @@ h3.mini{ font-size:14px; font-weight:100; font-style:italic; text-transform:none
 .page-template-page-turismo-y-turismo-social .recorrido .ruta{ margin-top:0px;}
 .page-template-page-turismo-y-turismo-social .recorrido-b .container {background-position: 50px -10px;}
 .page-template-page-turismo-y-turismo-social .actividades .contacto .in {padding: 0 0;background-position: 0 105px;}
-.page-template-page-turismo-y-turismo-social .actividades .contacto{ margin-bottom:100px; margin-top:50px }
+.page-template-page-turismo-y-turismo-social .actividades .contacto{ margin-bottom:20px; margin-top:0px }
+
+
+
+.page-template-by-interest .recorrido-b .container , .page-template-by-interest .actividades{ background-image:none !important}
+.page-template-by-interest .recorrido .ruta{ margin-top:0px;}
+.page-template-by-interest .recorrido-b .container {background-position: 50px -10px;}
+.page-template-by-interest .actividades .contacto .in {padding: 0 0;background-position: 0 105px;}
+.page-template-by-interest .actividades .contacto{ margin-bottom:20px; margin-top:0px }
+
+
 
 #galeria .slide{background-color:#242424;}
 #galeria .slide .in { padding:20% 100px; color:#fff}
@@ -388,7 +434,7 @@ h3.mini{ font-size:14px; font-weight:100; font-style:italic; text-transform:none
 
 .carousel-control.left{ background-image:none !important}
 
-.carrusel {background-color: #ccc;margin: 0 0 30px 60px;width: 360px;}
+.carrusel {background-color: #ccc;margin: 0 0 0 60px;width: 360px;}
 .carrusel ul { margin: 0; padding: 0; list-style: none; display: block;}
 .carrusel li { text-align: center; display: block; float: left;}
 .carrusel.responsive { width: auto; margin-left: 0;}
@@ -398,6 +444,8 @@ h3.mini{ font-size:14px; font-weight:100; font-style:italic; text-transform:none
 .carrusel .controls #ante{ left: 10px; position: absolute; top:-100px;}
 
 .carrusel .controls .control:hover{ color:#40ccaf}
+
+.page-id-502 .carrusel {margin: 0 0 0 60px;}
 
 .clientes , .testimonios{ text-align:center}
 .testimonios .in{ padding:40px 70px}
@@ -414,6 +462,8 @@ h3.mini{ font-size:14px; font-weight:100; font-style:italic; text-transform:none
 .produccion{ background-color:#33567c; color:#fff; text-align:center; opacity:.6; transition:all .3s ease-in}
 .produccion:hover{ opacity:1;}
 .produccion a { color: #fff;font-weight: 700;font-size: 15px;padding: 55px 20px;display: inline-block; text-transform: uppercase; height: 130px;vertical-align: middle; text-decoration:none;}
+
+.page-id-502 .produccion{ color: #fff;font-weight: 700;font-size: 15px;padding: 55px 20px;display: inline-block; text-transform: uppercase; height: 130px;vertical-align: middle; text-decoration:none;}
 
 .produccions{ padding:40px 0}
 .produccions .btn{ white-space:normal; font-size:12px; text-transform:uppercase; font-weight:700; min-height:55px;}
@@ -476,44 +526,82 @@ h3.mini{ font-size:14px; font-weight:100; font-style:italic; text-transform:none
 /*************************************PERSONAS**********************************************/
 /*******************************************************************************************/
 
-.persona { position: relative; overflow: hidden;
+.panel-title a {
+  padding: 5px;
+  display: block;
 }
+
+#prr-141 a{padding: 20px 16px 0px 16px;}
+
+.persona { position: relative; overflow: hidden;}
 
 .persona img{ opacity:1; transition:all .3s ease-in-out}
-.persona img:hover{ opacity:.8;}
+.persona:hover img{ opacity:.8;}
 
-.arrow { background-color: #fff; display: block; padding: 10px; position: absolute; height: 85px; width: 85px; transform: rotate(45deg); -webkit-transform:rotate(45deg); top: 40%; right: -15%; cursor:pointer; transition:all .3s ease;
+.persona .arrow { background-color: #fff; display: block; padding: 10px; position: absolute; height: 85px; width: 85px; transform: rotate(45deg); -webkit-transform:rotate(45deg); top: 40%; right: -15%; cursor:pointer; transition:all .3s ease;
 }
 
-.arrow::after { border-left: 2px solid #000; border-bottom: 2px solid #000; content: ''; position: absolute; bottom: 10px; left: 10px; width: 20px; height: 20px; transition:all 0.3s ease-in; }
+persona .arrow::after { border-left: 2px solid #000; border-bottom: 2px solid #000; content: ''; position: absolute; bottom: 10px; left: 10px; width: 20px; height: 20px; transition:all 0.3s ease-in; }
 
-.arrow::before {
+persona .arrow::before {
  border-right: 2px solid #000;border-top: 2px solid #000; content: ''; position: absolute; top: 10px; width: 20px; height: 20px; right: 10px; transition:all 0.3s ease-in}
 
 .cl-der .arrow { left: -15%;}
 
-.arrow:hover , .persona:hover .arrow{ background-color:#000}
+persona .arrow:hover , .persona:hover .arrow{ background-color:#000}
 
-.persona:hover .arrow::after { border-left: 2px solid #fff; border-bottom: 2px solid #fff; content: ''; position: absolute; bottom: 10px; left: 10px; width: 20px; height: 20px; transition:all 0.3s ease-in; }
+/*.persona:hover .arrow::after { border-left: 2px solid #fff; border-bottom: 2px solid #fff; content: ''; position: absolute; bottom: 10px; left: 10px; width: 20px; height: 20px; transition:all 0.3s ease-in; }
 
-.persona:hover .arrow::before { border-right: 2px solid #fff;border-top: 2px solid #fff; content: ''; position: absolute; top: 10px; width: 20px; height: 20px; right: 10px; transition:all 0.3s ease-in}
+.persona:hover .arrow::before { border-right: 2px solid #fff;border-top: 2px solid #fff; content: ''; position: absolute; top: 10px; width: 20px; height: 20px; right: 10px; transition:all 0.3s ease-in}*/
 
-.pdata { position: absolute; z-index: 1; top: 50%; transform: rotate(-45deg); -webkit-transform: rotate(-45deg); background-color: #000; padding: 25px; text-align: center; vertical-align: middle; transform-origin: 0 0; left: 50%; opacity:0; transition:all .3s ease-in
-}
+.pdata { position: absolute; z-index: -1; top: 0%;  background-color: #000; padding: 25px; text-align: center; vertical-align: middle; transform-origin: 0 0; left: 100%; opacity:0; transition:all .3s ease-in; width:100%; bottom:0}
 
 .pdata-b{ /*display:block*/ opacity:1;}
 
-
-.pdata .inside { display: block; width: 150px; height: 150px; padding: 0px; transform: rotate(45deg); -webkit-transform:rotate(45deg); position: relative; vertical-align: middle; text-align: center; color:#fff;
+.pdata .inside { display: block; padding: 0px;  position: relative; vertical-align: middle; text-align: center; color:#fff;
 }
 
-.cl-der .pdata { left: auto; right: 80%;
+.cl-der .pdata { left: auto; right: 100%;}
+
+.cl-der .pdata:after {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(0, 0, 0, 0);
+	border-left-color: #000;
+	border-width: 30px;
+	margin-top: -30px;
 }
 
-.pdata .inside{ display:none; width:150px; height:150p; padding:20px; transform:rotate(45deg); -webkit-transform:rotate(45deg)}
+.pdata:after {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(0, 0, 0, 0);
+	border-right-color: #000;
+	border-width: 30px;
+	margin-top: -30px;
+}
+
+.pdata.ontop{ z-index:1}
+
+.pdata .inside{ display:none;  padding:40% 0; }
 .pdata-b .inside{ display:block;}
 
 .testimonio small{ font-weight:700}
+
+.popover-content h5{ font-weight:700; color:#000; text-align:center;}
+.popover-content .btn{ margin-bottom:5px; border: none; background-color:#436891}
 
 /*******************************************************************************************/
 /*************************************FOOTER************************************************/
@@ -591,3 +679,8 @@ body{ background-size:auto 100%; background-position:top center}
 }
 .navbar-default .navbar-toggle{ background-color: #436891; color: #fff; border-radius: 0px; border: 0;  padding: 15px 12px;}
 .navbar-default .navbar-toggle .icon-bar { background-color: #fff;}
+
+.panel-title {
+  padding: 0px;
+  line-height: 60%;
+}

@@ -3,7 +3,6 @@
 	Template Name: Turismo y Turismo Social
  */
 ?>
-
 <?php get_header()?>
 
 <?php $bigimage = wp_get_attachment_image_src(get_field('top_imagen') , 'full')?>
@@ -15,10 +14,44 @@
                 <div class="clear"></div>
                 <p><?php echo $post->post_excerpt?></p>
                 <div class="clear separator"></div>
+                
+                <?php if(is_page(502)){?>
+                <span class="galbt"><span class="fa fa-image fa-fw down"></span> photo gallery</span>
+                <?php }else{?>
+                <span class="galbt"><span class="fa fa-image fa-fw down"></span> ver galería</span>
+                <?php }?>
+                
+                
+                <div class="clear separator"></div>
                 <span class="fa fa-chevron-down fa-2x fa-fw down"></span>
             </div>
+            <?php if(is_page(502)){?>
+             <div class="masdestinos">
+				<?php $destinos = get_posts(array('post_type' => 'page', 'post_parent' => 23 , 'order' => 'ASC' /* , 'post__not_in' => array($post->ID) */))?>
+                <?php /* <span>Otros Programas</span> */?>
+                <ul>
+                    <?php foreach($destinos as $destino):?>
+                    <li><a href="<?php echo get_permalink($destino->ID)?>"><?php echo str_replace('<BR>' , ' ' ,  $destino->post_title ) ?></a></li>
+                    
+                    <?php endforeach;?>
+                </ul>
+            </div>
+            <?php }?>
             
     	</div>
+        
+        <?php if(is_page(93)){?>
+        <div class="masdestinos">
+			<?php $destinos = get_posts(array('post_type' => 'page', 'post_parent' => 17 /* , 'post__not_in' => array($post->ID) */))?>
+            <?php /* <span>Otros Programas</span> */?>
+            <ul>
+                <?php foreach($destinos as $destino):?>
+                <li><a href="<?php echo get_permalink($destino->ID)?>"><?php echo $destino->post_title?></a></li>
+                <?php endforeach;?>
+            </ul>
+        </div>
+        <?php }?>
+        
 	</div>
 </div>
 <div class="premain"></div>
@@ -28,7 +61,7 @@
         
         	<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                 <h1><?php echo $post->post_title?></h1>
-                <h3><?php echo get_field('secondary_name')?></h3>
+                <h3 class="mini"><?php echo get_field('secondary_name')?></h3>
             </div>
         
         	<article class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
@@ -68,7 +101,18 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <div class="modal-content">
             <div class="modal-body">
-              <?php echo do_shortcode('[contact-form-7 id="64" title="Contacto Viajes de estudio"]')?>
+            
+            
+            	<?php if(is_page(86)){?>
+              		<?php echo do_shortcode('[contact-form-7 id="64" title="Contacto Viajes de estudio y ceal"]')?>
+            	<?php }elseif(is_page(502)){?>
+                	<?php echo do_shortcode('[contact-form-7 id="1408" title="Contacto Incoming"]')?>
+                <?php }else{?>
+                	<?php echo do_shortcode('[contact-form-7 id="1409" title="Contacto Somos y social"]')?>
+                <?php }?>
+            
+            
+            
             </div>
         </div>
 	</div>
@@ -108,8 +152,13 @@
             </div>
         	<div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 col-esp">
             	<div class="in">
+                	<?php if(is_page(502)){?>
+                    <h2>Photo Gallery</h2>
+                	<?php }else{?>
                 	<h2>Galería de fotos</h2>
-                    <h4>Lorem Ipsum Dolor</h4>
+                    <?php }?>
+                    
+                    <h4><?php echo get_field('bajada_galeria')?></h4>
                     <p><?php echo get_field('descripcion_galeria')?></p>
                 </div>
             </div>
@@ -155,17 +204,48 @@
     </div>
 </section>
 
+<?php if(is_page(502)){?>
+
+<?php }else{?>
+
 <section class="testimonios">
 	<div class="container">
 		<div class="row">
-        	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 testimonios">
+        
+        	<?php if(is_page(21)){?>
+        
+                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 testimonios col-sm-offset-3 col-lg-offset-3" col-md-offset-3>
+                    <h2>Testimonios</h2>
+                    <div class="clear separator"></div>
+                    <?php //$testimonios = get_posts(array('post_type' => 'testimonios' , 'numberposts' => 1 , 'order' => 'RAND'))?>
+                    <?php $testimonios = get_field('testimonios')?>
+                    
+                    <div class="in testimonio">
+                        <?php if($testimonios){?>
+                        <?php echo $testimonios[0]['testimonio']?>
+                        <div class="clear separator"></div>
+                        <small><?php echo $testimonios[0]['autor']?></small>
+                        <?php }?>
+                    </div>
+                </div>
+                
+            <?php }else{?>
+            	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 testimonios">
             	<h2>Testimonios</h2>
                 <div class="clear separator"></div>
-                <?php $testimonios = get_posts(array('post_type' => 'testimonios' , 'numberposts' => 1 , 'order' => 'RAND'))?>
-                <div class="in"><?php echo $testimonios[0]->post_content?></div>
+                <?php //$testimonios = get_posts(array('post_type' => 'testimonios' , 'numberposts' => 1 , 'order' => 'RAND'))?>
+                <?php $testimonios = get_field('testimonios')?>
+                
+                <div class="in testimonio">
+                	<?php if($testimonios){?>
+					<?php echo $testimonios[0]['testimonio']?>
+                	<div class="clear separator"></div>
+                    <small><?php echo $testimonios[0]['autor']?></small>
+                    <?php }?>
+                </div>
             </div>
         	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 clientes">
-            	<h2>Nuestros clientes</h2>
+            	<h2>Algunos clientes</h2>
                 <div class="clear separator"></div>
                 <?php $clientes = get_field('clientes');?>
                 <?php //var_dump($clientes)?>
@@ -176,10 +256,12 @@
                     </div>
                 <?php endforeach;?>
             </div>
+            <?php }?>
         </div>
 	</div>
 </section>
-
 <div class="clear separator"></div>
+<?php } ?>
+
 
 <?php get_footer()?>

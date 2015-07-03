@@ -9,7 +9,7 @@ add_image_size('col-7', (1920/12)*7, (920/4)*3, true );
 //add_image_size('col-4', 640, 612, true );
 add_image_size('col-4', 640, 445, true );
 add_image_size('col-4-large', 640, 1080, true );
-add_image_size('col-3-large', 1920/4, 1080, true );
+add_image_size('col-3-large', (1920/12)*3 , 1080, true );
 add_image_size('mini', (1920/12)*1, (920/8)*1, true );
 add_image_size('mini-b', (1920/12)*2, (920/8)*2, true );
 add_image_size('persona', 450, 450, true );
@@ -126,7 +126,8 @@ function personas_register() {
     flush_rewrite_rules();
 }
 
-register_taxonomy("area", array('personas'), array("hierarchical" => true, "label" => "Áreas", "singular_label" => "Área", "rewrite" => true));
+//register_taxonomy("area", array('personas'), array("hierarchical" => true, "label" => "Áreas", "singular_label" => "Área", "rewrite" => true));
+register_taxonomy("equipo", array('personas'), array("hierarchical" => true, "label" => "Equipos", "singular_label" => "Equipo", "rewrite" => true));
 
 ?>
 
@@ -250,6 +251,19 @@ function rc_modify_query_limit_posts( $query ) {
 		$query->set('posts_per_page', '10');
 	}
 } */
+
+add_filter('pre_get_posts', 'Per_category_basis');
+function Per_category_basis($query){
+    if (! is_admin() && $query->is_archive) {
+        // category named 'books' show 12 posts
+        if (is_archive('personas')){
+            $query->set('posts_per_page', -1);
+        }
+        
+    }
+    return $query;
+}
+
 ?>
 <?php 
 /**

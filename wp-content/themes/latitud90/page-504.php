@@ -4,9 +4,10 @@
 <div class="separator"></div>
 <div id="destinos" class="container-fluid">
 	<div class="row">
-    	      
+    	
         
-        	<?php $producciones = get_posts(array('post_parent' => 23 , 'numberposts' => -1 , 'post_type' => 'page' , 'orderby' => 'ID' , 'order' => 'ASC'))?>
+        
+        	<?php $producciones = get_posts(array('post_parent' => 504 , 'numberposts' => -1 , 'post_type' => 'page' , 'orderby' => 'ID' , 'order' => 'ASC'))?>
         	<?php $pcount = 0?>
             <?php $class = ''?>
             <?php foreach($producciones as $post):?>

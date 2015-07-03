@@ -55,9 +55,9 @@ jQuery(document).ready(function($) {
     </div>
     <div class="clear hidden-md hidden-lg"></div>
 <?php foreach($areas as $area):?>
-	<div class="rombo hidden-xs" id="area-<?php echo $area->ID?>">
-		<a class="text" href="<?php echo get_permalink($area->ID)?>"><?php echo $area->post_title?></a>
-	</div>
+	<a class="rombo hidden-xs" id="area-<?php echo $area->ID?>" href="<?php echo get_permalink($area->ID)?>">
+		<span class="text" href="<?php echo get_permalink($area->ID)?>"><?php echo $area->post_title?></span>
+	</a>
 <?php endforeach;?>
 </div>
 <?php get_footer()?>

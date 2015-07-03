@@ -87,7 +87,18 @@ jQuery(document).ready(function() {
 </script>
 <?php }?>
 
-<?php if(is_page(7)){?>
+<?php /* if(is_page(502)){ //bigvideo?>
+<script>
+	jQuery(function() {
+		var BV = new $.BigVideo();
+		BV.init();
+		  BV.show('<?php echo get_field('video_loop' , 502)?>',{doLoop:true});
+	});
+</script>
+<?php } */?>
+
+
+<?php if(is_page(7) || is_page(1428)){?>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript">
   function initialize() {
@@ -186,13 +197,13 @@ jQuery(document).ready(function() {
       	<div class="row">
       	
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand logo" href="<?php bloginfo('url')?>"><img src="<?php bloginfo('template_directory')?>/images/logo.png" alt="" width="150" /></a>
+            	<a class="navbar-brand logo" href="<?php bloginfo('url')?>"><img src="<?php bloginfo('template_directory')?>/images/logo.png" alt="" width="150" /></a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
             </div>
             <div class="navbar-collapse collapse">
               

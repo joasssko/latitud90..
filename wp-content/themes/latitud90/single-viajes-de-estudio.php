@@ -20,8 +20,8 @@
     	</div>
         <div class="masdestinos">
         	<?php $dest = wp_get_post_terms($post->ID , 'destino')?>
-			<?php $destinos = get_posts(array('post_type' => 'viajes-de-estudio' , 'destino' => $dest[0]->slug , 'post__not_in' => array($post->ID)))?>
-            <span>Otros destinos</span>
+			<?php $destinos = get_posts(array('post_type' => 'viajes-de-estudio' , 'destino' => $dest[0]->slug /* , 'post__not_in' => array($post->ID) */))?>
+            <?php /* <span>Otros destinos</span> */?>
             <ul>
                 <?php foreach($destinos as $destino):?>
                 <li><a href="<?php echo get_permalink($destino->ID)?>"><?php echo $destino->post_title?></a></li>
@@ -54,27 +54,27 @@
         <div class="row ruta">
         	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
             	<h2>Ruta</h2>
-                <h4>Expedición</h4>
+                <h4><?php echo get_field('bajadaruta')?></h4>
                 <?php $minimap = wp_get_attachment_image_src(get_field('minimap') , 'full')?>
                 <img src="<?php echo $minimap[0]?>" class="minimap" alt="">
             </div>
         	<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
             	<h2>Destinos</h2>
-                <h4>Expedición</h4>
+                <h4><?php echo get_field('bajadadestinos')?></h4>
                 <?php echo apply_filters('the_content' , get_field('destinos'))?>
             </div>
         </div>
         <div class="row actividades">
         	<div class="col-md-5 col-lg-5 col-sm-5 col-xs-12">
             	<h2>Actividades</h2>
-                <h4>Expedición</h4>
+                <h4><?php echo get_field('bajadaactividades')?></h4>
                 <?php echo apply_filters('the_content' , get_field('actividades'))?>
             </div>
             <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12 guias">
             	<div class="in">
                     <h2>Guías</h2>
-                    <h4>Expedición</h4>
-                    <a href="">Ver más</a>
+                    <h4><?php echo get_field('bajadaguias')?></h4>
+                    <a href="<?php echo get_term_link('guias' , 'equipo')?>">Ver más</a>
                 </div>
             </div>
             <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12 contacto">
@@ -97,7 +97,7 @@
     <div class="modal-content">
         
       <div class="modal-body">
-        <?php echo do_shortcode('[contact-form-7 id="64" title="Contacto Viajes de estudio"]')?>
+        <?php echo do_shortcode('[contact-form-7 id="64" title="Contacto Viajes de estudio y ceal"]')?>
       </div>
       
     </div>
@@ -139,7 +139,7 @@
         	<div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 col-esp">
             	<div class="in">
                 	<h2>Galería de fotos</h2>
-                    <h4>Lorem Ipsum Dolor</h4>
+                    <h4><?php echo get_field('bajada_galeria')?></h4>
                     <p><?php echo get_field('descripcion_galeria')?></p>
                 </div>
             </div>
@@ -203,7 +203,7 @@
                 </div>
             </div>
         	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 clientes">
-            	<h2>Nuestros clientes</h2>
+            	<h2>Algunos clientes</h2>
                 <div class="clear separator"></div>
                 <?php $clientes = get_field('clientes');?>
                 <?php //var_dump($clientes)?>

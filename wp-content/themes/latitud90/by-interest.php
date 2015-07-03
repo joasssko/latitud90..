@@ -1,3 +1,9 @@
+<?php 
+/* 
+	Template Name: Travel by interest
+ */
+?>
+
 <?php get_header()?>
 
 <?php $bigimage = wp_get_attachment_image_src(get_field('top_imagen') , 'full')?>
@@ -9,19 +15,64 @@
                 <div class="clear"></div>
                 <p><?php echo $post->post_excerpt?></p>
                 <div class="clear separator"></div>
+                <span class="galbt"><span class="fa fa-image fa-fw down"></span> photo gallery</span>
+                <div class="clear separator"></div>
                 <span class="fa fa-chevron-down fa-2x fa-fw down"></span>
             </div>
             
     	</div>
+        
+        <div class="masdestinos">
+			<?php $destinos = get_posts(array('post_type' => 'page', 'post_parent' => 504 , 'order' => 'ASC' /* , 'post__not_in' => array($post->ID) */))?>
+            <?php /* <span>Otros Programas</span> */?>
+            <ul>
+                <?php foreach($destinos as $destino):?>
+                <li><a href="<?php echo get_permalink($destino->ID)?>"><?php echo $destino->post_title?></a></li>
+                <?php endforeach;?>
+            </ul>
+        </div>
+        
 	</div>
 </div>
 <div class="premain"></div>
-
 <main>
 	<div class="container">
 		<div class="row">
-        	<article class="col-md-8 col-md-offset-4 col-lg-8 col-lg-offset-4 col-sm-12 col-xs-12">
+        
+        	<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
+                <h1><?php echo $post->post_title?></h1>
+                <h3 class="mini"><?php echo get_field('secondary_name')?></h3>
+            </div>
+        
+        	<article class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
             	<?php echo apply_filters('the_content',$post->post_content)?>
+                
+                
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+              
+              <?php $aas = get_field('itinerario')?>
+              <?php $aac = 0?>
+              <?php foreach($aas as $aa):?>
+              <?php $aac++?>
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading-<?php echo $aac?>">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-<?php echo $aac?>" aria-expanded="<?php if($aac == 1){?>true<?php }else{?>false<?php }?>" aria-controls="collapse-<?php echo $aac?>">
+                      <?php echo $aa['days']?>
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapse-<?php echo $aac?>" class="panel-collapse collapse <?php if($aac == 1){?>in<?php }?>" role="tabpanel" aria-labelledby="heading-<?php echo $aac?>">
+                  <div class="panel-body">
+                    <?php echo $aa['activities']?>
+                  </div>
+                </div>
+              </div>
+              <?php endforeach?>
+              
+            </div>
+                
+                
             </article>
         </div>        
 	</div>
@@ -29,53 +80,21 @@
 
 <section class="recorrido recorrido-b">
 	<div class="container">
-		<div class="row">
-        	<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-                <h1><?php echo $post->post_title?></h1>
-                <h3><?php echo get_field('secondary_name')?></h3>
-            </div>
-        </div>
+		
         <div class="row ruta">
         	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
             	<h2>&nbsp;</h2>
             </div>
-        	<div class="col-md-6 col-lg-6 col-sm-4 col-xs-12">
-            	<h2>Objetivos</h2>
-                <h4>CEAL</h4>
-                <?php echo apply_filters('the_content' , get_field('destinos'))?>
-            </div>
+        	
         </div>
         <div class="row actividades">
-        	<div class="col-md-5 col-lg-5 col-sm-5 col-xs-12">
-            	<h2>Actividades</h2>
-                <h4>Expedición</h4>
-                <?php echo apply_filters('the_content' , get_field('actividades'))?>
-            </div>
-            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12 guias">
-            	<div class="in">
-                    <h2>Guías</h2>
-                    <h4>Expedición</h4>
-                    <a href="">Ver más</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12 contacto">
+        	
+            <div class="col-md-2 col-lg-2 col-sm-2 col-xs-12 col-md-offset-10 col-lg-offset-10 contacto">
                 <div class="in">
                     <div class="fa fa-envelope-o"></div>
                     <a data-target="#modal-contacto" data-toggle="modal">Contacto</a>
                     
-                    <div class="modal fade" id="modal-contacto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <div class="modal-content">
-                            
-                          
-                          <div class="modal-body">
-                            <?php echo do_shortcode('[contact-form-7 id="64" title="Contacto Viajes de estudio"]')?>
-                          </div>
-                          
-                        </div>
-                      </div>
-                    </div>
+                    
                 </div>
             </div>
             
@@ -83,6 +102,18 @@
         </div>
 	</div>
 </section>
+
+<div class="modal fade" id="modal-contacto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="modal-content">
+            <div class="modal-body">
+              <?php echo do_shortcode('[contact-form-7 id="1408" title="Contacto Incoming"]')?>
+            </div>
+        </div>
+	</div>
+</div>
+
 <div class="separator"></div>
 <section id="galeria">
 	<div class="slide">
@@ -117,7 +148,7 @@
             </div>
         	<div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 col-esp">
             	<div class="in">
-                	<h2>Galería de fotos</h2>
+                	<h2>Photo Gallery</h2>
                     <h4><?php echo get_field('bajada_galeria')?></h4>
                     <p><?php echo get_field('descripcion_galeria')?></p>
                 </div>
@@ -125,7 +156,7 @@
             <div class="clear"></div>
         
         
-        <div class="carrusel responsive">
+        <div class="carrusel responsive hidden-xs">
             <ul class="carro">
             <?php $mgc = -1?>
             	<?php foreach($galeria as $imagen):?>
@@ -164,31 +195,5 @@
     </div>
 </section>
 
-<section class="testimonios">
-	<div class="container">
-		<div class="row">
-        	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 testimonios">
-            	<h2>Testimonios</h2>
-                <div class="clear separator"></div>
-                <?php $testimonios = get_posts(array('post_type' => 'testimonios' , 'numberposts' => 1 , 'order' => 'RAND'))?>
-                <div class="in"><?php echo $testimonios[0]->post_content?></div>
-            </div>
-        	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 clientes">
-            	<h2>Nuestros clientes</h2>
-                <div class="clear separator"></div>
-                <?php $clientes = get_field('clientes');?>
-                <?php //var_dump($clientes)?>
-                <?php foreach($clientes as $cliente):?>
-                	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-4">
-						<?php echo get_the_post_thumbnail($cliente , 'mini' , array('class' => 'img-responsive'))?>
-                        <?php echo get_the_title($cliente)?>
-                    </div>
-                <?php endforeach;?>
-            </div>
-        </div>
-	</div>
-</section>
-
-<div class="clear separator"></div>
 
 <?php get_footer()?>

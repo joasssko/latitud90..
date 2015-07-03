@@ -58,7 +58,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                     </ul>
                 </div>
                 <div class="clear separator"></div>
-                <a href="http://www.latitud90.com/fichas/" target="_blank" class="btn  btn-md btn-success">Enviar ficha médica&nbsp;</a>
+                
             </div>
         
         	<article class="col-md-8 col-lg-8 col-sm-12 col-xs-12">

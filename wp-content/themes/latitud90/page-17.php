@@ -16,13 +16,13 @@
     
     <?php var_dump($bg)?>
     
-	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 col-esp boxed" style="background-image:url(<?php echo $bigimage[0]?>)">
-    	<a href="<?php echo get_page_link(91)?>">Curso de Educación<br> al Aire Libre</a>
+	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 col-esp boxed" style="background-image:url(<?php echo $bigimage[0]?>); text-align:left">
+    	<a href="<?php echo get_page_link(91)?>" style="text-align:left">Curso de Educación<br> al Aire Libre</a>
     </div>
 	
 	<?php $bigimage = wp_get_attachment_image_src(get_field('background' , '92') , 'col-6')?>
-	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 col-esp boxed der" style="background-image:url(<?php echo $bigimage[0]?>)">
-    	<a href="<?php echo get_page_link(92)?>">Centro<br>de Desafíos</a>
+	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 col-esp boxed der" style="background-image:url(<?php echo $bigimage[0]?>); text-align:right">
+    	<a href="<?php echo get_page_link(92)?>" style="text-align:right">Centro<br>de Desafíos</a>
     </div>
     
     <div class="clear"></div>

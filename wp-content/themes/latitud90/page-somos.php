@@ -73,7 +73,7 @@
                             
                           
                           <div class="modal-body">
-                            <?php echo do_shortcode('[contact-form-7 id="64" title="Contacto Viajes de estudio"]')?>
+                            <?php echo do_shortcode('[contact-form-7 id="1409" title="Contacto Somos y social"]')?>
                           </div>
                           
                         </div>

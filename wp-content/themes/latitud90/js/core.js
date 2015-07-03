@@ -183,6 +183,14 @@ jQuery(document).ready(function($) {
 	});
 });
 
+jQuery(document).ready(function($) {
+	jQuery(".galbt").click(function() {
+		jQuery('html, body').animate({
+			scrollTop: jQuery("#galeria").offset().top
+		}, 700 );
+	});
+});
+
 
 /*jQuery(document).ready(function($) {
 	jQuery('.collapser').click(function(event) {
@@ -218,15 +226,19 @@ jQuery(document).ready(function($) {
 });
 
 jQuery(document).ready(function($) {
-	jQuery('.persona').click(function(event) {
+	jQuery('.persona').mouseenter(function(event) {
 		jQuery('.ontop').removeClass('ontop pdata-b');
 		jQuery(this).next().delay(400).addClass('pdata-b');
 		jQuery(this).next().delay(400).addClass('ontop');
 		
 	});
+	
+	jQuery('.persona').mouseleave(function(event){
+		jQuery('.pdata').removeClass('ontop pdata-b');
+	});
 });
 
-jQuery(document).ready(function($) {
+/*jQuery(document).ready(function($) {
 	jQuery('.layer-4 .rombo').hover(function() {
 		jQuery('.layer-3').css('display', 'block').delay(500).animate({opacity : 1}, 500)
 	}, function() {
@@ -235,7 +247,7 @@ jQuery(document).ready(function($) {
 		})
 	});
 });
-
+*/
 //easing
 
 

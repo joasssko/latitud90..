@@ -19,8 +19,11 @@
                 <div class="rombo hidden-xs"><span class="text"><?php echo $post->post_title?></span></div>
                 <div class="clear"></div>
                 <div class="clear separator"></div>
-                <span class="fa fa-play fa-2x fa-fw playbutton" data-toggle="modal" data-target="#videoproducciones"></span>
-                <span class="playbutton-sm" data-toggle="modal" data-target="#videoproducciones">Ver Reel</span>
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                    <?php echo apply_filters('the_content',$post->post_content)?>
+                </div>
+                <?php /* <span class="fa fa-play fa-2x fa-fw playbutton" data-toggle="modal" data-target="#videoproducciones"></span>
+                <span class="playbutton-sm" data-toggle="modal" data-target="#videoproducciones">Ver Reel</span> */?>
             </div>
             
     	</div>
@@ -40,8 +43,7 @@ jQuery('.modal').on('click', function() {
 });
 
 </script>
-
-
+<?php /* 
 <div class="modal fade modal-wide" id="videoproducciones" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -56,7 +58,7 @@ jQuery('.modal').on('click', function() {
     </div>
   </div>
 </div>
-
+ */?>
 <div class="clear separator"></div>
 
 <div class="producciones navbar-fixed-bottom">

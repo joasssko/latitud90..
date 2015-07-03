@@ -1,16 +1,14 @@
 <?php 
 /* 
-	Template Name: Producciones
+	Template Name: Incoming
  */
 ?>
 <?php get_header()?>
 
-
-
 <div id="underhead">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3 col-xs-12 col-sm-4 col lg-3"><h2>Producciones</h2></div>
+			<div class="col-md-3 col-xs-12 col-sm-4 col lg-3"><h2>Turismo</h2></div>
 			<div class="col-md-9 col-xs-12 col-sm-8 col lg-9"><?php echo $post->post_excerpt?></div>
 		</div>
 	</div>
@@ -19,59 +17,33 @@
 <main>
 	<div class="container">
     	<div class="row">
-        	<div class="clear separator"></div>
-            <div class="clear miniseparator"></div>
         	<?php $bigimage = wp_get_attachment_image_src(get_field('top_imagen') , 'col-6-third')?>
             <img src="<?php echo $bigimage[0]?>" class="img-responsive" alt="" width="100%">
         </div>
         
-        <div class="row produccions">
+        <div class="row incomings">
         	<div class="row">
-				<?php $producciones = get_posts(array('post_parent' => 19 , 'numberposts' => -1 , 'post_type' => 'page' , 'orderby' => 'ID' , 'order' => 'ASC'))?>
+				<?php $producciones = get_posts(array('post_parent' => 23 , 'numberposts' => -1 , 'post_type' => 'page' , 'orderby' => 'ID' , 'order' => 'ASC'))?>
             
             <?php foreach($producciones as $produccion):?>
-                <div class="col-md-2 col-sm-4 col-xs-12 col-lg-2" id="prr-<?php echo $produccion->ID?>" style="text-align:center">
+                <div class="col-md-3 col-sm-3 col-xs-6 col-lg-3" style="text-align:center">
                     <a href="<?php echo get_permalink($produccion->ID)?>" class="btn btn-default btn-lg btn-block"><?php echo $produccion->post_title;?></a>
                 </div>	
-                <div class="clear miniseparator hidden-sm hidden-lg hidden-md"></div>
             <?php endforeach?>
             </div>
 	    </div>
         
         <div class="row">
-        	<h1><?php echo $post->post_title?></h1>
-            <?php echo apply_filters('the_content' , $post->post_content)?>
-            
-            <?php $testimonios = get_field('testimonios')?>
-            <?php if($testimonios){?>
-
-            <blockquote class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12 testimonio-produccion" ><em><?php echo $testimonios[0]['testimonio']?></em><div class="clear"></div><small><?php echo $testimonios[0]['autor']?></small></blockquote>
-            <?php }?>
+        	<div class="col-md-4 col-lg-4 col-sm-10 col-xs-12">
+            	<h1><?php echo $post->post_title?></h1>
+            </div>
+            <div class="col-md-8 col-lg-8 col-sm-10 col-xs-12"><?php echo apply_filters('the_content' , $post->post_content)?></div>
         </div>
         
     </div>
 </main>
 
-<section class="promesas">
-	<div class="container">
-		<div class="row">
-			<h2>Nuestra Promesa</h2>
-            
-            <?php $promesas = get_field('promesas')?>
-            <?php foreach($promesas as $promesa):?>
-                <div class="col-md-20 col-lg-20 col-sm-20 col-xs-6 promesa">
-                    <img src="<?php echo $promesa['icono']?>" alt="">
-                    <span><?php echo $promesa['promesa']?></span>
-                </div>
-            <?php endforeach?>
-            
-            
-            
-		</div>
-	</div>
-</section>
-
-
+<?php if(get_field('galeria')){?>
 <div class="separator"></div>
 <section id="galeria">
 	<div class="slide">
@@ -106,7 +78,7 @@
             </div>
         	<div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 col-esp">
             	<div class="in">
-                	<h2>Galería de fotos</h2>
+                	<h2>Photo Gallery</h2>
                     <h4><?php echo get_field('bajada_galeria')?></h4>
                     <p><?php echo get_field('descripcion_galeria')?></p>
                 </div>
@@ -114,7 +86,7 @@
             <div class="clear"></div>
         
         
-        <div class="carrusel responsive hidden-xs">
+        <div class="carrusel responsive">
             <ul class="carro">
             <?php $mgc = -1?>
             	<?php foreach($galeria as $imagen):?>
@@ -153,15 +125,16 @@
     </div>
 </section>
 
-<div class="clear separator"></div>
+<?php }?>
 
+<?php /* ?>
 <section class="personas">
 	<div class="container">
 		<div class="row">
         
-        	<h3>Equipo Producciones</h3>
+        	<h3>Somos</h3>
         	
-            <?php $personas = get_posts(array('post_type' => 'personas' , 'numberposts' => 12 , 'equipo' => 'producciones'))?>
+            <?php $personas = get_posts(array('post_type' => 'personas' , 'numberposts' => 12 , 'area' => 'producciones'))?>
             <?php $pc = 0?>
             <?php foreach($personas as $persona):?>
             	<?php $pc++?>
@@ -178,9 +151,10 @@
                 <?php if($pc % 4 == 0){echo '<div class="clear separator hidden-lg hidden-md hidden-xs"></div>';}?>
                 <?php if($pc % 2 == 0){echo '<div class="clear separator hidden-lg hidden-md hidden-sm"></div>';}?>
             <?php endforeach;?>
-          <div class="clear separator"></div>              
+                        
         </div>
 	</div>
 </section>
+<?php  */?>
 
 <?php get_footer()?>

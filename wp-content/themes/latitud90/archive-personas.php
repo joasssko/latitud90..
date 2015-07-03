@@ -19,7 +19,7 @@
             	<?php $pc++?>
             	<div class="col-md-3 col-lg-3 col-sm-3 col-xs-6 col-esp <?php echo $cl?>">
                 	<div class="persona">
-                    	<div class="arrow"></div>
+                    	<?php /* <div class="arrow"></div> */?>
                     	<?php echo get_the_post_thumbnail($persona->ID , 'persona', array('class' => 'img-responsive'))?>
                     </div>
                     <div class="pdata">
@@ -43,7 +43,7 @@
         
         	<h3>Somos</h3>
         	
-            <?php $personas = get_posts(array('post_type' => 'personas' , 'numberposts' => 12 , 'area' => 'producciones'))?>
+            <?php //$personas = get_posts(array('post_type' => 'personas' , 'numberposts' => 12 , 'area' => 'producciones'))?>
             <?php $pc = 0?>
             <?php foreach($personas as $persona):?>
             	<?php $pc++?>

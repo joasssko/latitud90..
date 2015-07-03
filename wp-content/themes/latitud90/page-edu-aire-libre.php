@@ -22,8 +22,8 @@
             
     	</div>
         <div class="masdestinos">
-			<?php $destinos = get_posts(array('post_type' => 'page', 'post_parent' => 17 , 'post__not_in' => array($post->ID)))?>
-            <span>Otros Programas</span>
+			<?php $destinos = get_posts(array('post_type' => 'page', 'post_parent' => 17 , 'order' => 'ASC' /* , 'post__not_in' => array($post->ID) */))?>
+            <?php /* <span>Otros Programas</span> */?>
             <ul>
                 <?php foreach($destinos as $destino):?>
                 <li><a href="<?php echo get_permalink($destino->ID)?>"><?php echo $destino->post_title?></a></li>
@@ -40,7 +40,7 @@
         
         	<div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                 <h1><?php echo $post->post_title?></h1>
-                <h3><?php echo get_field('secondary_name')?></h3>
+                <h3 class="mini"><?php echo get_field('secondary_name')?></h3>
             </div>
         
         	<article class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
@@ -58,7 +58,7 @@
             	<h2>&nbsp;</h2>
             </div>
         	<div class="col-md-6 col-lg-6 col-sm-4 col-xs-12">
-            	<?php if(is_page(92)){?><h2>Programas</h2><?php }else{?><h2>Objetivos</h2<?php }?>
+            	<?php if(is_page(92)){?><h2>Programas</h2><?php }else{?><h2>Objetivos</h2><?php }?>
                 <h4><?php echo $post->post_title?></h4>
                 <?php echo apply_filters('the_content' , get_field('objetivos'))?>
             </div>
@@ -88,7 +88,7 @@
                             
                           
                           <div class="modal-body">
-                            <?php echo do_shortcode('[contact-form-7 id="64" title="Contacto Viajes de estudio"]')?>
+                            <?php echo do_shortcode('[contact-form-7 id="64" title="Contacto Viajes de estudio y ceal"]')?>
                           </div>
                           
                         </div>
@@ -136,7 +136,7 @@
         	<div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 col-esp">
             	<div class="in">
                 	<h2>Galería de fotos</h2>
-                    <h4>Lorem Ipsum Dolor</h4>
+                    <h4><?php echo get_field('bajada_galeria')?></h4>
                     <p><?php echo get_field('descripcion_galeria')?></p>
                 </div>
             </div>
@@ -200,7 +200,7 @@
                 </div>
             </div>
         	<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 clientes">
-            	<h2>Nuestros clientes</h2>
+            	<h2>Algunos clientes</h2>
                 <div class="clear separator"></div>
                 <?php $clientes = get_field('clientes');?>
                 <?php //var_dump($clientes)?>
