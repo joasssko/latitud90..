@@ -16,16 +16,16 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'latitud90');
+define('DB_NAME', 'latitud');
 
 /** MySQL database username */
-define('DB_USER', 'latitud90');
+define('DB_USER', 'upmedia');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'latitud9876.,');
+define('DB_PASSWORD', 'upmedia8039876.,');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'upmedia.crcq0jopmo84.us-west-2.rds.amazonaws.com:3306');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
