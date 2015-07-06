@@ -119,7 +119,7 @@
                   	<?php foreach($galeria as $imagen):?>
                     <?php $imc++?>
                     <div class="item <?php if($imc == 1){echo 'active';}?>">
-                      <img src="<?php echo $imagen['sizes']['col-7']?>" class="img-responsive">
+                      <img src="<?php echo $imagen['sizes']['col-7']?>?ver=1.0" class="img-responsive">
                     </div>
                     <?php endforeach?>
                     
@@ -151,7 +151,7 @@
             <?php $mgc = -1?>
             	<?php foreach($galeria as $imagen):?>
                 <?php $mgc++?>
-                <li style="width:<?php echo $imagen['sizes']["medium-width"]?>px"><img src="<?php echo $imagen['sizes']['mini-b']?>" class="img-responsive" data-target="#carousel-example-generic" data-slide-to="<?php echo $mgc?>" alt=""></li>
+                <li style="width:<?php echo $imagen['sizes']["medium-width"]?>px"><img src="<?php echo $imagen['sizes']['mini-b']?>?ver=1.0" class="img-responsive" data-target="#carousel-example-generic" data-slide-to="<?php echo $mgc?>" alt=""></li>
                 <?php endforeach?>
             </ul>
         	<div class="clear"></div>
@@ -161,26 +161,7 @@
             </div>
         </div>
         
-        <script>
-        //  Responsive layout, resizing the items
-		jQuery('.carro').carouFredSel({
-			responsive: true,
-			width: '100%',
-			scroll: 1,
-			prev: '#ante',
-			next: '#sgte',
-			pagination: "#pager",
-			 items: {
-				//width: 200,
-				//height: '50%',  //  optionally resize item-height
-				visible: {
-					min: 2,
-					max: <?php echo $tg?>
-				}
-			} 
-		});
-				
-        </script>
+        
         
     </div>
 </section>
@@ -221,3 +202,23 @@
 <div class="clear separator"></div>
 
 <?php get_footer()?>
+<script>
+//  Responsive layout, resizing the items
+jQuery('.carro').carouFredSel({
+	responsive: true,
+	width: '100%',
+	scroll: 1,
+	prev: '#ante',
+	next: '#sgte',
+	pagination: "#pager",
+	 items: {
+		//width: 200,
+		//height: '50%',  //  optionally resize item-height
+		visible: {
+			min: 2,
+			max: <?php echo $tg?>
+		}
+	} 
+});
+		
+</script>

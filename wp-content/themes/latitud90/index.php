@@ -2,6 +2,19 @@
 <?php $bgd = wp_get_attachment_image_src( get_field('default_background' , 'options') , 'full')?>
 <?php $areas = get_posts(array('post_parent' => 13 , 'numberposts' => -1 , 'post_type' => 'page' , 'orderby' => 'ID' , 'order' => 'ASC'))?>
 
+<div class="areas">
+	<div class="title">
+    	El sentido de <strong>descubrir</strong>
+    </div>
+    <div class="clear hidden-md hidden-lg"></div>
+<?php foreach($areas as $area):?>
+	<a class="rombo hidden-xs" id="area-<?php echo $area->ID?>" href="<?php echo get_permalink($area->ID)?>">
+		<span class="text" href="<?php echo get_permalink($area->ID)?>"><?php echo $area->post_title?></span>
+	</a>
+<?php endforeach;?>
+</div>
+<?php get_footer()?>
+
 <script>
 function preload(arrayOfImages) {
     jQuery(arrayOfImages).each(function(){
@@ -48,16 +61,3 @@ jQuery(document).ready(function($) {
 
 });	
 </script>
-
-<div class="areas">
-	<div class="title">
-    	El sentido de <strong>descubrir</strong>
-    </div>
-    <div class="clear hidden-md hidden-lg"></div>
-<?php foreach($areas as $area):?>
-	<a class="rombo hidden-xs" id="area-<?php echo $area->ID?>" href="<?php echo get_permalink($area->ID)?>">
-		<span class="text" href="<?php echo get_permalink($area->ID)?>"><?php echo $area->post_title?></span>
-	</a>
-<?php endforeach;?>
-</div>
-<?php get_footer()?>

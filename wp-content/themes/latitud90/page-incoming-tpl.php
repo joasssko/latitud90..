@@ -8,7 +8,7 @@
 <div id="underhead">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3 col-xs-12 col-sm-4 col lg-3"><h2>Turismo</h2></div>
+			<div class="col-md-3 col-xs-12 col-sm-4 col lg-3"><h2>Incoming</h2></div>
 			<div class="col-md-9 col-xs-12 col-sm-8 col lg-9"><?php echo $post->post_excerpt?></div>
 		</div>
 	</div>
@@ -101,26 +101,7 @@
             </div>
         </div>
         
-        <script>
-        //  Responsive layout, resizing the items
-		jQuery('.carro').carouFredSel({
-			responsive: true,
-			width: '100%',
-			scroll: 1,
-			prev: '#ante',
-			next: '#sgte',
-			pagination: "#pager",
-			 items: {
-				//width: 200,
-				//height: '50%',  //  optionally resize item-height
-				visible: {
-					min: 2,
-					max: <?php echo $tg?>
-				}
-			} 
-		});
-				
-        </script>
+        
         
     </div>
 </section>
@@ -158,3 +139,23 @@
 <?php  */?>
 
 <?php get_footer()?>
+<script>
+        //  Responsive layout, resizing the items
+		jQuery('.carro').carouFredSel({
+			responsive: true,
+			width: '100%',
+			scroll: 1,
+			prev: '#ante',
+			next: '#sgte',
+			pagination: "#pager",
+			 items: {
+				//width: 200,
+				//height: '50%',  //  optionally resize item-height
+				visible: {
+					min: 2,
+					max: <?php echo $tg?>
+				}
+			} 
+		});
+				
+        </script>

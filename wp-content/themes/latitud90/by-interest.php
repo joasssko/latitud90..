@@ -171,7 +171,14 @@
             </div>
         </div>
         
-        <script>
+        
+        
+    </div>
+</section>
+
+
+<?php get_footer()?>
+<script>
         //  Responsive layout, resizing the items
 		jQuery('.carro').carouFredSel({
 			responsive: true,
@@ -191,9 +198,3 @@
 		});
 				
         </script>
-        
-    </div>
-</section>
-
-
-<?php get_footer()?>

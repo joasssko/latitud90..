@@ -119,6 +119,7 @@
                 <h3>Síguenos en Facebook</h3>
                 
                 <div class="fb-page" data-href="https://www.facebook.com/latitud90" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/latitud90"><a href="https://www.facebook.com/latitud90">Latitud Noventa</a></blockquote></div></div>
+                
                 <div class="clear separator border"></div>
                 
             </div>

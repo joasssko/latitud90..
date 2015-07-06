@@ -180,26 +180,7 @@
             </div>
         </div>
         
-        <script>
-        //  Responsive layout, resizing the items
-		jQuery('.carro').carouFredSel({
-			responsive: true,
-			width: '100%',
-			scroll: 1,
-			prev: '#ante',
-			next: '#sgte',
-			pagination: "#pager",
-			 items: {
-				//width: 200,
-				//height: '50%',  //  optionally resize item-height
-				visible: {
-					min: 2,
-					max: <?php echo $tg?>
-				}
-			} 
-		});
-				
-        </script>
+        
         
     </div>
 </section>
@@ -265,3 +246,23 @@
 
 
 <?php get_footer()?>
+<script>
+        //  Responsive layout, resizing the items
+		jQuery('.carro').carouFredSel({
+			responsive: true,
+			width: '100%',
+			scroll: 1,
+			prev: '#ante',
+			next: '#sgte',
+			pagination: "#pager",
+			 items: {
+				//width: 200,
+				//height: '50%',  //  optionally resize item-height
+				visible: {
+					min: 2,
+					max: <?php echo $tg?>
+				}
+			} 
+		});
+				
+        </script>
